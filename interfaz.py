@@ -82,7 +82,7 @@ class Interfaz:
                 mins = int(var_min.get())
 
                 #Validaciones
-                if num < 0 or mins < 0:
+                if num <= 0 or mins < 0:
                     messagebox.showerror("Error","El número de camiseta y los minutos no pueden ser negativos.")
                     return
                 
