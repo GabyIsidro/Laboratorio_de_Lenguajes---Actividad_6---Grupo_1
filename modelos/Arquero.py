@@ -1,4 +1,4 @@
-from modelos.jugador import Jugador
+from modelos.Jugador import Jugador
 
 class Arquero(Jugador):
     # creador de un objeto tipo arquero
@@ -8,7 +8,7 @@ class Arquero(Jugador):
 
     # sobrescribo el método mostrarDatos para indicar que es un arquero
     def mostrarDatos(self):
-        print(f"ARQUERO = '{self.apellido}'\n"
-              f" número = '{self.numeroCamiseta}' \n"
-              f" posición = '{self.posicion}' \n"
-              f" minutos jugados = '{self.minutosJugados}'")
+        return (f"ARQUERO = '{self.apellido}'\n"
+                f" Número = '{self.numeroCamiseta}' \n"
+                f" Posición = '{self.posicion}' \n"
+                f" Minutos jugados = '{self.minutosJugados}'")

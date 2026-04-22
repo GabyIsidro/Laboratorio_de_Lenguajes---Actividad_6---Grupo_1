@@ -1,4 +1,4 @@
-from jugador import Jugador
+from modelos.Jugador import Jugador
 
 class JugadorCampo(Jugador):
   def __init__(self, numeroCamiseta, apellido, posicion, minutosJugados, golesMarcados):

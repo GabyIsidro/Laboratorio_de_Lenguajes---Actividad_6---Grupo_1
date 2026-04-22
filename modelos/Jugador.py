@@ -6,9 +6,9 @@ class Jugador (object):
         self.posicion = posicion
         self.minutosJugados = minutosJugados
 
-    #muestro todos los datos del jugador en un print simple
+    #muestro todos los datos del jugador
     def mostrarDatos(self):
-        print("jugador = '{self.apellido}'\n numero = '{self.numeroCamiseta}' \n posición = '{self.posicion}' \n minutos jugaods = '{sel.minutosJugados}'")
+        return f"Jugador = '{self.apellido}'\n Número = '{self.numeroCamiseta}' \n Posición = '{self.posicion}' \n Minutos jugados = '{self.minutosJugados}'"
 
     #permite que se puedan editar los minutos jugados de un jugador
     def setMinutosJugados(self, minutosJugados):
@@ -16,4 +16,4 @@ class Jugador (object):
         
     #muestra los minutos jugados de un jugador
     def getMinutosJugados(self):
-         print("el jugador '{self.apellido}' jugó '{sel.minutosJugados}' minutos.")
+         return f"el jugador '{self.apellido}' jugó '{self.minutosJugados}' minutos."
