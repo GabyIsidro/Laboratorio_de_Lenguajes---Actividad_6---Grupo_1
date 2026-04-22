@@ -77,20 +77,38 @@ class Interfaz:
         def guardar():
             try:
                 num = int(var_num.get())
-                ape = var_ape.get()
+                ape = var_ape.get().strip()
                 pos = var_pos.get()
                 mins = int(var_min.get())
+
+                #Validaciones
+                if num < 0 or mins < 0:
+                    messagebox.showerror("Error","El número de camiseta y los minutos no pueden ser negativos.")
+                    return
+                
+                if not ape or not ape.replace(" ", "").isalpha():
+                    messagebox.showerror("Error","El apellido no puede estar vacío y debe contener solo letras.")
+                    return
+                
+                for jugador in self.listaEquipo:
+                    if jugador.numeroCamiseta == num:
+                        messagebox.showerror("Error","Ya existe un jugador con ese número de camiseta.")
+                        return
                 
                 # Instanciamos el objeto correspondiente según la posición
                 if pos == "Arquero":
                     nuevo_jugador = Arquero(num, ape, mins)
                 else:
                     goles = int(var_gol.get())
+                    if goles < 0:
+                        messagebox.showerror("Error","Los goles no pueden ser negativos.")
+                        return
                     nuevo_jugador = JugadorCampo(num, ape, pos, mins, goles)
                 
                 self.listaEquipo.append(nuevo_jugador)
                 messagebox.showinfo("Éxito", f"Jugador {ape} cargado correctamente.")
                 ventana_carga.destroy()
+
             except ValueError:
                 messagebox.showerror("Error", "Revise los datos ingresados. Camiseta, minutos y goles deben ser números enteros.")
 
@@ -117,8 +135,3 @@ class Interfaz:
             txt_area.insert(tk.END, datos + "\n" + "-"*40 + "\n")
         
         txt_area.config(state="disabled") # Lo ponemos en solo lectura
-
-if __name__ == "__main__":
-    ventana_principal = tk.Tk()
-    app = Interfaz(ventana_principal)
-    ventana_principal.mainloop()
